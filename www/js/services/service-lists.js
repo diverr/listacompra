@@ -15,7 +15,33 @@ angular.module('starter.services.lists', [])
     name: 'Eroski'
   }];
 
+  // productos de una lista
+  var products = [
+    
+      {
+        id: 0,
+        cat: 0,
+        list: 0,
+        name: 'Magdalenas'
+      }, 
+      {
+        id: 1,
+        cat: 0,
+        list: 0,
+        name: 'Leche'
+      }, 
+      {
+        id: 2,
+        cat: 0,
+        list: 0,
+        name: 'Cereales'
+      }
+    
+  ];  
+
   return {
+    
+    // metodos de listas
     all: function() {
       return items;
     },
@@ -32,6 +58,28 @@ angular.module('starter.services.lists', [])
     },
     add: function(item) {
       items.push(item);
+    },
+    
+    
+    // métodos para los productos de una lista
+    allProducts: function(list) {
+      return products;
+    },
+    removeProduct: function(item) {
+      products.splice(products.indexOf(item), 1);
+    },
+    getProduct: function(id) {
+      for (var i = 0; i < products.length; i++) {
+        if (products[i].id === parseInt(id)) {
+          return products[i];
+        }
+      }
+      return null;
+    },
+    addProduct: function(item) {
+      products.push(item);
     }
+    
+    
   };
 });

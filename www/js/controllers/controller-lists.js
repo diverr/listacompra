@@ -4,12 +4,13 @@ angular.module('starter.controllers.lists', [])
 	
 	$scope.newlist = {};
 	
+	$scope.productsList = [];
+	
 	$scope.gotoNewList = function() {
 		$location.path('/tab/newlist');	
 	};
 	
 	$scope.newList = function() {
-		console.log($scope.newlist.name);
 		Lists.add({name: $scope.newlist.name});
 		$location.path('/tab/lists');
 	};

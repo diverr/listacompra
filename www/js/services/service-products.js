@@ -46,7 +46,7 @@ angular.module('starter.services.products', [])
         name: 'Volvone'
       },
     ];
-
+    
     return {
       
       // productos
@@ -87,8 +87,6 @@ angular.module('starter.services.products', [])
       addCat: function (cat) {
         cats.push(cat);
       }
-      
-      
       
       
     };
