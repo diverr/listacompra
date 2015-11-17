@@ -1,21 +1,7 @@
 <ion-view view-title="Listas de la compra">
   <ion-content>
     
-    <div class="list">
-      <a ng-repeat="list in lists" class="item" href="#/tab/newproduct">
-        {{list.name}}
-      </a>
-  </div>
-    
-    
-    <div class="padding">
-      <button class="button button-full button-positive" ng-click="gotoNewList();">
-      Nueva lista
-      </button>  
-    </div>
-    
-    
-    
+    <listado-productos></listado-productos>
     
   </ion-content>
 </ion-view>
