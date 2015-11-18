@@ -1,6 +1,9 @@
-angular.module('starter.services.products', [])
+angular.module('starter')
 
-  .factory('Products', function () {
+  .service('Products', serviceProducts);
+
+
+function serviceProducts() {
     // Might use a resource here that returns a JSON array
   
     var cats = [
@@ -90,4 +93,4 @@ angular.module('starter.services.products', [])
       
       
     };
-  });
+  }

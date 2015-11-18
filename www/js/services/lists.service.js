@@ -1,6 +1,9 @@
-angular.module('starter.services.lists', [])
+angular.module('starter')
 
-.factory('Lists', function() {
+.service('Lists', serviceList);
+
+
+function serviceList() {
   // Might use a resource here that returns a JSON array
 
   // Some fake testing data
@@ -82,4 +85,4 @@ angular.module('starter.services.lists', [])
     
     
   };
-});
+}

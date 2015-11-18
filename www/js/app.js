@@ -5,13 +5,7 @@
 // the 2nd parameter is an array of 'requires'
 // 'starter.services' is found in services.js
 // 'starter.controllers' is found in controllers.js
-angular.module('starter', [
-  'ionic', 
-  'starter.controllers.lists', 
-  'starter.controllers.products', 
-  'starter.services.lists',
-  'starter.directives.lists'
-  ])
+angular.module('starter', ['ionic'])
 
   .run(function ($ionicPlatform) {
     $ionicPlatform.ready(function () {
@@ -50,8 +44,7 @@ angular.module('starter', [
         url: '/lists',
         views: {
           'tab-lists': {
-            templateUrl: 'templates/tab-lists.html',
-            controller: 'ListsCtrl'
+            templateUrl: 'templates/tab-lists.html'
           }
         }
       })
@@ -60,8 +53,7 @@ angular.module('starter', [
         url: '/newlist',
         views: {
           'tab-lists': {
-            templateUrl: 'templates/tab-newlist.html',
-            controller: 'ListsCtrl'
+            templateUrl: 'templates/tab-newlist.html'
           }
         }
       })
@@ -70,8 +62,7 @@ angular.module('starter', [
         url: '/products',
         views: {
           'tab-products': {
-            templateUrl: 'templates/tab-products.html',
-            controller: 'ProductsCtrl'
+            templateUrl: 'templates/tab-products.html'
           }
         }
       });
