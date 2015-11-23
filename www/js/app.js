@@ -22,7 +22,13 @@ angular.module('starter', ['ionic'])
       }
     });
   })
-
+  
+  
+  .constant('CONSTANT', {
+    url : 'http://localhost:3000/'
+  })
+  
+  
   .config(function ($stateProvider, $urlRouterProvider) {
 
     // Ionic uses AngularUI Router which uses the concept of states

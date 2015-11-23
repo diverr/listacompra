@@ -9,13 +9,27 @@ function listadoProductos() {
 		controller: function(Products) {
             var vm = this;
             
-            var all = Products.all();
+            var all = [];
+            
+            
+            vm.cats = [];
+            vm.products = [];
             
             vm.buscando = false;
             vm.search = '';
-            vm.cats = Products.allCats();
-            vm.products = all;
+            
+            
             vm.buscar = buscar;
+            
+             Products.allCats().then(function(result) {
+                 vm.cats = result.data;
+                 
+                 Products.all().then(function(result) {
+                     all = result.data;
+                     vm.products = all;
+                 });
+                 
+             });
             
             function buscar() {
                 vm.products = all;
@@ -52,7 +66,7 @@ function listadoProductos() {
             '<div class="list">',
                 '<span ng-repeat="cat in vm.cats">',
                     '<div class="item item-divider" ng-hide="vm.buscando">{{cat.name}}</div>',
-                    '<div class="item" ng-repeat="product in vm.products | filter: {cat: cat.id}">{{product.name}}</div>',
+                    '<div class="item" ng-repeat="product in vm.products | filter: {cat: cat._id}">{{product.name}}</div>',
                 '</span>',
             '</div>',
             

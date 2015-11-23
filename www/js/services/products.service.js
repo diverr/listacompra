@@ -3,58 +3,22 @@ angular.module('starter')
   .service('Products', serviceProducts);
 
 
-function serviceProducts() {
+function serviceProducts($http, CONSTANT) {
     // Might use a resource here that returns a JSON array
   
-    var cats = [
-      {
-        id: 0,
-        name: "Desayuno"
-      },
-      {
-        id: 1,
-        name: "Limpieza"
-      }
-    ];
-
-    var items = [
-      {
-        id: 0,
-        cat: 0,
-        name: 'Magdalenas'
-      }, 
-      {
-        id: 1,
-        cat: 0,
-        name: 'Leche'
-      }, 
-      {
-        id: 2,
-        cat: 0,
-        name: 'Cereales'
-      },
-      {
-        id: 3,
-        cat: 1,
-        name: 'Pronto Jabonoso'
-      }, 
-      {
-        id: 4,
-        cat: 1,
-        name: 'Fregasuelos'
-      }, 
-      {
-        id: 5,
-        cat: 1,
-        name: 'Volvone'
-      },
-    ];
+    var cats = [];
+    var items = [];
     
     return {
       
       // productos
       all: function () {
-        return items;
+        var promise = $http.get(CONSTANT.url + 'products')
+          .success(function(result) {
+            result.data;
+          });
+          
+        return promise;
       },
       remove: function (item) {
         items.splice(items.indexOf(item), 1);
@@ -74,7 +38,13 @@ function serviceProducts() {
       
       // categorías
       allCats: function () {
-        return cats;
+        // cargamos las categorías
+        var promise = $http.get(CONSTANT.url + 'cats')
+          .success(function(result) {
+            return result.data;
+          });
+          
+        return promise;
       },
       removeCat: function (cat) {
         cats.splice(cats.indexOf(cat), 1);
